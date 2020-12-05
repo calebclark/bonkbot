@@ -1,0 +1,5 @@
+#!/bin/bash
+FOLDER=/tmp/bonk
+LOCK_FILE=$FOLDER/bonklock
+kill `cat $LOCK_FILE`
+rm $LOCK_FILE

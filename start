@@ -1,0 +1,11 @@
+#!/bin/bash
+FOLDER=/tmp/bonk
+LOCK_FILE=$FOLDER/bonklock
+LOGS=$FOLDER/logs
+mkdir -p $FOLDER
+if test -f $LOCK_FILE; then
+	echo "$LOCK_FILE already exists, try running stop"
+else 
+	nohup ./event_listener.py &>> $LOGS &
+	echo $! > $LOCK_FILE
+fi

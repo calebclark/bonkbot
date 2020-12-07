@@ -26,11 +26,12 @@ async def on_message(message):
         return
     print(message.content)
     guild_jail = jail.Jail(message.guild)
+    if util.in_bot_channel(message):
+        for handler in command_handlers:
+            if await handler.message_handler(message, guild_jail, bonkbot):
+                return
     for handler in handlers:
-        await handler.message_handler(message, guild_jail, bonkbot)
-    if not util.in_bot_channel(message):
-        return
-    for handler in command_handlers:
-        await handler.message_handler(message, guild_jail, bonkbot)
+        if await handler.message_handler(message, guild_jail, bonkbot):
+            return
 
 client.run(secrets.get_discord_token())

@@ -11,7 +11,7 @@ class MegaBonkHandler:
         author = message.author
         # Check if the user can be jailed.
         if not jail.can_jail(author):
-            return
+            return False
         if self.cf.get("megabonk_trigger_phrase") in message.content.lower() and util.is_mentioned(message, bonkbot):
             await message.channel.send(self.cf.get("megabonk_message"))
             for channel in message.guild.channels:
@@ -19,4 +19,5 @@ class MegaBonkHandler:
                     print("All members to move = " + str(author.voice.channel.members))
                     for member in author.voice.channel.members:
                         await jail.add(member)
-                    return
+                    return True
+        return False

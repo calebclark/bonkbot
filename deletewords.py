@@ -5,6 +5,7 @@ import discord.utils
 
 class DeleteWordsHandler:
     cf = config.get_instance()
+    this.name = "deletewords"
 
     async def message_handler(self, message, jail, bonkbot):
         print("Starting delete words handler")
@@ -22,6 +23,8 @@ class DeleteWordsHandler:
             new_list = sorted(list(set(self.cf.get("trigger_words")).difference(set(command_words[2:]))))
             self.cf.put("trigger_words", new_list)
             await message.channel.send(util.list_trigger_words())
+            return True
+        return False
             
             
 

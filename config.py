@@ -1,5 +1,8 @@
 import boto3
 
+#class Command:
+#    def __init__(self, description, 
+
 class Config:
     dynamodb = boto3.resource('dynamodb')
     
@@ -18,5 +21,3 @@ config = Config('BonkBotConfig')
 # using the singleton pattern
 def get_instance():
     return config
-
-    

@@ -2,9 +2,10 @@
 import config
 import util
 import discord.utils
+from handler import Handler
 
-class AddWordsHandler:
-    this.name = "addwords"
+class AddWordsHandler(Handler):
+    name = "addwords"
 
     def matches(self, message, bonkbot, command_words):
         if not util.is_mentioned(message, bonkbot):

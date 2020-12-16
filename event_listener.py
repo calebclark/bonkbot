@@ -6,13 +6,15 @@ import megabonk
 import listwords
 import addwords
 import deletewords
+import longmessage
 import util
 import jail
+import names
 
 intent = discord.Intents.all()
 client = discord.Client(intents = intent)
 
-handlers = [bonk.BonkHandler(), megabonk.MegaBonkHandler()] 
+handlers = [names.Names(), bonk.BonkHandler(), megabonk.MegaBonkHandler(), longmessage.LongMessageHandler()] 
 command_handlers = [listwords.ListWordsHandler(), addwords.AddWordsHandler(), deletewords.DeleteWordsHandler()]
 
 

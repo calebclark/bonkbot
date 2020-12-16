@@ -2,10 +2,10 @@
 import config
 import util
 import discord.utils
+from handler import Handler
 
-class DeleteWordsHandler:
-    cf = config.get_instance()
-    this.name = "deletewords"
+class DeleteWordsHandler(Handler):
+    name = "deletewords"
 
     async def message_handler(self, message, jail, bonkbot):
         print("Starting delete words handler")

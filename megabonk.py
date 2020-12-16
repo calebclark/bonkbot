@@ -1,10 +1,10 @@
-#!/usr/bin/env python3
+from handler import Handler
 import discord
 import config
 import util
 
-class MegaBonkHandler:
-    cf = config.get_instance()
+class MegaBonkHandler(Handler):
+    name = "megabonk"
 
     async def message_handler(self, message, jail, bonkbot):
         print("Starting megabonk handler")

@@ -1,10 +1,9 @@
-#!/usr/bin/env python3
+from handler import Handler
 import discord
-import config
 import util
 
-class BonkHandler:
-    cf = config.get_instance()    
+class BonkHandler(Handler):
+    name = "bonk"
 
     async def message_handler(self, message, jail, bonkbot):
         author = message.author

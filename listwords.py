@@ -3,10 +3,10 @@ import discord
 import config
 import util
 from functools import reduce
+from handler import Handler
 
-class ListWordsHandler:
-    cf = config.get_instance()
-    this.name = "listwords"
+class ListWordsHandler(Handler):
+    name = "listwords"
 
     async def message_handler(self, message, jail, bonkbot):
         print("Starting listwords handler")

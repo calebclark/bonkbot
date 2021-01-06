@@ -10,13 +10,15 @@ import longmessage
 import util
 import jail
 import names
+import based
 
 intent = discord.Intents.all()
 client = discord.Client(intents = intent)
 
-handlers = [names.Names(), bonk.BonkHandler(), megabonk.MegaBonkHandler(), longmessage.LongMessageHandler()] 
+handlers = [based.Based(client), names.Names(), bonk.BonkHandler(), megabonk.MegaBonkHandler(), longmessage.LongMessageHandler()] 
 command_handlers = [listwords.ListWordsHandler(), addwords.AddWordsHandler(), deletewords.DeleteWordsHandler()]
 
+first = True
 
 @client.event
 async def on_message(message):
@@ -35,5 +37,4 @@ async def on_message(message):
     for handler in handlers:
         if await handler.message_handler(message, guild_jail, bonkbot):
             return
-
 client.run(secrets.get_discord_token())

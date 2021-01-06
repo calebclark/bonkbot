@@ -11,7 +11,7 @@ class Based(Handler):
 
     async def message_handler(self, message, jail, bonkbot):
         #await self.client.user.edit(username="Based Bot")
-        if util.sanitize(message.content) == "based":\
+        if util.sanitize(message.content) == "based":
             if message.author.id in bad_author_ids:
                 response = "not based"
             else:

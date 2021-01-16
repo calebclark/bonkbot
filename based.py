@@ -16,6 +16,6 @@ class Based(Handler):
                 response = "not based"
             else:
                 response = "based"
-            await message.channel.send(response)
+            await util.send_message(message.channel, response)
             return True
         return False

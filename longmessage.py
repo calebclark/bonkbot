@@ -9,6 +9,6 @@ class LongMessageHandler(Handler):
 
     async def message_handler(self, message, jail, bonkbot):
         if self.matches(message, bonkbot):
-            await message.channel.send(random.choice(self.cf.get("long_message_responses")))
+            await util.send_message(channel, random.choice(self.cf.get("long_message_responses")))
             return True 
         return False

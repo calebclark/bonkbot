@@ -11,11 +11,12 @@ import util
 import jail
 import names
 import based
+import drink
 
 intent = discord.Intents.all()
 client = discord.Client(intents = intent)
 
-handlers = [based.Based(client), names.Names(), bonk.BonkHandler(), megabonk.MegaBonkHandler(), longmessage.LongMessageHandler()] 
+handlers = [drink.Drink(), based.Based(client), names.Names(), bonk.BonkHandler(), megabonk.MegaBonkHandler(), longmessage.LongMessageHandler()] 
 command_handlers = [listwords.ListWordsHandler(), addwords.AddWordsHandler(), deletewords.DeleteWordsHandler()]
 
 first = True

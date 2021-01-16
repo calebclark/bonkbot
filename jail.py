@@ -18,6 +18,8 @@ class Jail:
 
     # True if the given member is not in jail and is in voice.
     def can_jail(self, member):
+        if member.bot:
+            return False
         if not self.has_jail():
             return False
         voice = member.voice

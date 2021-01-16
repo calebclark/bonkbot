@@ -14,6 +14,6 @@ class BonkHandler(Handler):
         for word in self.cf.get("trigger_words"):
             if word in util.sanitize(message.content).split():
                 await jail.add(author)
-                await message.channel.send(self.cf.get("jail_message"))
+                await util.send_message(message.channel, self.cf.get("jail_message"))
                 return True 
         return False
